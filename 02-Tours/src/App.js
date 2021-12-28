@@ -14,9 +14,11 @@ function App() {
       setLoading(true);
       const response = await fetch(url);
       const tours = await response.json();
+      setLoading(false);
       setTours(tours);
       console.log(tours);
     }catch(error) {
+      setLoading(false);
       console.log(error);
     }
   }
@@ -32,8 +34,9 @@ function App() {
       </main>
     );
   }
-  return <h2>Tours Project Setup</h2>
-
+  return (
+    <main><Tours tours = {tours}/></main>
+  );
 };
   
 
